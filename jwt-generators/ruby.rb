@@ -1,8 +1,8 @@
 require 'jwt'
 
-# https://wantable.hellonext.co/admin/settings/advanced
+# https://<YOUR-DOMAIN>.hellonext.co/admin/settings/advanced
 # Copy the token from the SSO section
-SSO_KEY = 'YOUR SSO TOKEN'
+SSO_KEY = "GENERATED_SSO_KEY";
 
 def generate_sso_token(email, name)
   user_data = {
