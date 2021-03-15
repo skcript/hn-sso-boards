@@ -1,0 +1,32 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport">
+  <title>Document</title>
+  <script src='http://app.hellonext.co/embed.js'></script>
+</head>
+  <body>
+    <div data-hellonext></div>
+    <script>
+      const getQueryStringParams = () => {
+        const query = new URLSearchParams(window.location.search).toString();
+        return query ? (/^[?#]/.test(query) ? query.slice(1) : query).split('&').reduce((params, param) => {
+          let [key, value] = param.split('=');
+          params[key] = value ? decodeURIComponent(value.replace(/\+/g, ' ')) : '';
+          return params;
+        }, {}) : {}
+      };
+    </script>
+    <script>
+      let params = getQueryStringParams();
+      hellonext.init({
+        embedURL: 'https://feedback.hellonext.co/embed/b/internal-suggestions',
+        ssoToken: params.token,
+        height: '100%',
+        width: '100%'
+      });
+    </script>
+  </body>
+</html>
