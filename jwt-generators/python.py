@@ -9,7 +9,7 @@ def generate_sso_token(user):
     'email': user.email,
     'name': user.name
     # if you'd like to add the person to your team, pass this option
-#     'add_to_team': True
+    # 'add_to_team': True
   }
   
   return jwt.encode(user_data, SSO_KEY, algorithm='HS256')
