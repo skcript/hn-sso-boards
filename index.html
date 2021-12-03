@@ -17,8 +17,10 @@
         <div class="col-md-4">
           <div class="card" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">Feature Requests 🎁</h5>
-              <p class="card-text">What features would you like to see in Hellonext? 🎁 Let us know!
+              <h5 class="card-title">Public Board</h5>
+              <p class="card-text">
+                This is a <a href="https://phoenix.hellonext.co/b/Public-Board" target="_blank">public board</a>. Anyone can see it.
+              </p>
               </p>
               <a href="/demo1.html" class="btn btn-primary">Visit</a>
             </div>
@@ -27,8 +29,10 @@
         <div class="col-md-4">
           <div class="card" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">Internal Suggestions 🛡</h5>
-              <p class="card-text">Submit feature requests from within the company. Things that only Skcripters should know.</p>
+              <h5 class="card-title">Private Board</h5>
+              <p class="card-text">
+                This is a <a href="https://phoenix.hellonext.co/embed/b/Private-Board" target="_blank">public board</a>. Only those logged in as an admin, team member or board member can access it. This is how the embed looks when a JWT is not <i>passed</i> in. If you are logged in to Hellonext on another tab in the same browser, you can see the board.
+              </p>
               <a href="/demo2.html" class="btn btn-primary">Visit</a>
             </div>
           </div>
@@ -36,8 +40,8 @@
         <div class="col-md-4">
           <div class="card" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">Integrations 🕹</h5>
-              <p class="card-text">Integrations that are coming up for Hellonext.</p>
+              <h5 class="card-title">Private Board</h5>
+              <p class="card-text">This is the same private board, only with a valid JWT token authorizing it. You can access this board if you pass a valid token, even if you are not logged in to Hellonext on another tab in the same browser. You can read more about how to generate a JWT token on our <a href="https://hellonext.co/help/setting-up-sso" target="_blank">help page</a>.</p>
               <a href="" id="tokenLink" class="btn btn-primary">Visit</a>
               <input type="text" id="token" placeholder="token">
             </div>
