@@ -9,6 +9,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -22,9 +24,7 @@
           <a class="nav-link" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" href="#">
             Boards ▼
           </a>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="/demo1.html">Public Board</a></li>
-            <li><a class="dropdown-item" href="/demo2.html">Private Board</a></li>
+          <ul class="dropdown-menu" id="bucket-list" aria-labelledby="dropdownMenuButton1">
           </ul>
         </div>
       </li>
@@ -76,6 +76,29 @@
       let token = e.target.value;
       let link = tokenLinkEl.getAttribute("href");
       tokenLinkEl.setAttribute("href", link + "?token=" + token)
+    })
+  </script>
+
+  <script>
+    axios({
+      method: "GET",
+      url: "https://app.hellonext.co/api/v3/buckets",
+      headers: {
+        "API-KEY": "3IIlJZNFukq3BRh76_aw4Q",
+      }
+    }).then(function({ data }) {
+      let { buckets } = data;
+      let bucketListEl = document.getElementById("bucket-list");
+      let listItems = buckets.map(function(bucket) {
+        let listEl = document.createElement("li");
+        let anchorEl =  document.createElement("a");
+        anchorEl.classList.add("dropdown-item");
+        anchorEl.href = "/demo1.html";
+        anchorEl.innerHTML = bucket.name;
+        listEl.appendChild(anchorEl);
+        bucketListEl.appendChild(listEl);
+      })
+
     })
   </script>
 </body>
